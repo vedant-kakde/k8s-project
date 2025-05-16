@@ -1,0 +1,15 @@
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  name: $APP_NAME-scaler
+  namespace: $NAMESPACE
+spec:
+  scaleTargetRef:
+    name: $APP_NAME
+  minReplicaCount: 1
+  maxReplicaCount: 5
+  triggers:
+  - type: cpu
+    metadata:
+      type: Utilization
+      value: "50"
