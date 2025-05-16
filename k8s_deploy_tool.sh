@@ -41,12 +41,30 @@ function install_jq() {
     fi
 }
 
+function install_metrics_server() {
+    if ! kubectl get deployment metrics-server -n kube-system &>/dev/null; then
+        echo "[INFO] Installing metrics-server..."
+        kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+
+        echo "[INFO] Patching metrics-server deployment to allow insecure TLS (for local clusters)..."
+        kubectl patch deployment metrics-server -n kube-system \
+          --type=json \
+          -p='[{"op":"add","path":"/spec/template/spec/containers/0/args/-","value":"--kubelet-insecure-tls"}]'
+
+        echo "[INFO] Waiting for metrics-server to be ready..."
+        kubectl rollout status deployment metrics-server -n kube-system
+    else
+        echo "[INFO] metrics-server is already installed."
+    fi
+}
+
 function check_prerequisites() {
     echo "[INFO] Checking prerequisites..."
     install_kubectl
     install_helm
     install_jq
-    echo "[INFO] All required tools are installed."
+    install_metrics_server
+    echo "[INFO] All required tools and components are installed."
 }
 
 ###########################
