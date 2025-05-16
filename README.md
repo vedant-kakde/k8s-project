@@ -1,6 +1,6 @@
 # k8s-project
 
-#$# Make script executable
+### Make script executable
 chmod +x k8s_deploy_tool.sh
 
 ### Run the following commands:
