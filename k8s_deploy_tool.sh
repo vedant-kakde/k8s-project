@@ -15,7 +15,7 @@ CONFIG_FILE="config/app_config.env"
 function install_kubectl() {
     if ! command -v kubectl &> /dev/null; then
         echo "[INFO] Installing kubectl..."
-        curl -LO "https://dl.k8s.io/release/$(curl -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+        curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
         chmod +x kubectl
         sudo mv kubectl /usr/local/bin/
     else
