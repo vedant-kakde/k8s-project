@@ -73,7 +73,7 @@ function check_prerequisites() {
 
 function connect_cluster() {
     echo "[INFO] Verifying connection to Kubernetes cluster..."
-    kubectl version --short
+    kubectl version
     kubectl get nodes
 }
 
