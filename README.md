@@ -71,6 +71,7 @@ MEMORY_LIMIT=256Mi
 ```
 
 Verifies cluster connection, lists nodes, installs required tools.
+![image](https://github.com/user-attachments/assets/4cd883b3-1eff-4357-894e-5621954abf69)
 
 ---
 
@@ -81,6 +82,7 @@ Verifies cluster connection, lists nodes, installs required tools.
 ```
 
 Installs KEDA operator in the `keda` namespace using Helm.
+![image](https://github.com/user-attachments/assets/be7c25c3-be65-404b-b39a-3a9a95f1f472)
 
 ---
 
@@ -94,6 +96,7 @@ Creates:
 - Deployment
 - Service
 - KEDA ScaledObject (based on CPU by default)
+![image](https://github.com/user-attachments/assets/193b0832-ba49-42a7-9faf-1441e2522fb5)
 
 ---
 
@@ -106,6 +109,7 @@ Creates:
 Displays:
 - Deployment and pod status
 - CPU/Memory usage (if metrics server is enabled)
+![image](https://github.com/user-attachments/assets/c6e89c24-479c-4a22-8ed9-e6c59a7b82a6)
 
 ---
 
@@ -113,4 +117,3 @@ Displays:
 
 This script automatically installs [Metrics Server](https://github.com/kubernetes-sigs/metrics-server), which is required for monitoring CPU and memory usage via `kubectl top`.
 
-For local clusters like `minikube` or `kind`, the script also adds the `--kubelet-insecure-tls` flag to allow insecure TLS connections to kubelets.
