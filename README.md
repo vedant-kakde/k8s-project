@@ -40,8 +40,8 @@ This repository provides a modular Bash CLI script to automate operations on a b
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/k8s-keda-cli-tool.git
-cd k8s-keda-cli-tool
+git clone https://github.com/vedant-kakde/k8s-project.git
+cd k8s-project
 chmod +x k8s_deploy_tool.sh
 ```
 
